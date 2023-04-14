@@ -7,7 +7,7 @@ Input: "Jasmine Ann Jones"
 
 Output: "Jasmine%20Ann%20Jones" -->
 ==========================================================================================================================
-<!-- Without Recurssion -->
+<!-- Without Recursion -->
 
 function replace (input) {
   let result = "";
@@ -23,5 +23,13 @@ function replace (input) {
 
 <!-- With Recurssion  -->
 
-
+function replace (usingRecursion) {
+  if (usingRecursion.length === 0) {
+    return "";
+  }
+  if (usingRecursion[0] === " ") {
+    return "%20" + replace(usingRecursion.substring(1));
+  }
+  return usingRecursion[0] + replace(usingRecursion.substring(1));
+}
 
