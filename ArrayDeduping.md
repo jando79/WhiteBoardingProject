@@ -8,7 +8,7 @@ Output: [7, 9, "hi", 12, 53]
 
 Without Recursion
 
-function dedupeArray (inputArray) {
+function dedupeArray(inputArray) {
   let newArray = [];
   for (let i = 0; i < inputArray.length; i++) {
     if (!newArray.includes(inputArray[i])) {
@@ -16,6 +16,27 @@ function dedupeArray (inputArray) {
     }
   }
   return newArray;
+}
+
+
+With Recursion:
+
+function removeDuplicates(input, result = []) {
+  if (input.length === 0) {
+    return result;
+  }
+  let newIndex = input[0];
+  if (!result.includes(newIndex)) {
+    result.push(newIndex);
+  }
+  return removeDuplicates(input.slice(1), result);
+}
+
+
+With Filter:
+
+function removeDuplicate(array) {
+  return array.filter((item, index) => array.indexOf(item) === index);
 }
 
 
